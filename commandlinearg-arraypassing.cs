@@ -2,18 +2,9 @@ using System;
 
     public class CommandLineArgs
     {
-        public static void Main(string[] args)
+	public static int Count(int[] numbers)
         {
-            int[] numbers = new int[5];
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                int marks = int.Parse(args[i]);
-                numbers[i] = marks;
-            }
-            Console.WriteLine("The Sum of numbers is " +Sum(numbers));
-            Console.WriteLine("The Average of numbers is " +Average(numbers));
-	    Console.WriteLine("The Minimum of numbers is "+Minimum(numbers));
-	    Console.WriteLine("The Maximum of numbers is "+Maximum(numbers));
+            return numbers.Length;
         }
 
         public static int Sum(int[] numbers)
@@ -61,6 +52,21 @@ using System;
 		}
 		return maxNumber;
 		
+        }
+
+	public static void Main(string[] args)
+        {
+            int[] numbers = new int[args.Length];
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                int marks = int.Parse(args[i]);
+                numbers[i] = marks;
+            }
+	    Console.WriteLine("The count of numbers is " +Count(numbers));
+            Console.WriteLine("The Sum of numbers is " +Sum(numbers));
+            Console.WriteLine("The Average of numbers is " +Average(numbers));
+	    Console.WriteLine("The Minimum of numbers is "+Minimum(numbers));
+	    Console.WriteLine("The Maximum of numbers is "+Maximum(numbers));
         }
 
     }
